@@ -1,0 +1,60 @@
+[SET] target => www.google.com
+[SET] IP Address => 142.250.193.100
+[SET] target port => 443
+[SET] include => All Module
+
+GREEN
+[INF] Check the SSL..
+[RES] This target supports SSL..
+[INF] Scan Anonymous Cipher..
+ - [LOG] IP Check Ok.
+ - [LOG] Start SSL Connection
+ - [LOG] Analysis SSL Information
+ - [LOG] 'Connection success'
+[INF] Scan CRIME(SPDY)..
+ - [LOG] IP Check Ok.
+ - [LOG] Start SSL Connection
+ - [LOG] Analysis SSL Information
+ - [LOG] 'Includes SPDY version <4'
+[INF] Scan CCS Injection..
+ - [LOG] TLSv1.2 142.250.193.100:443 rejected early CCS
+ - [LOG] TLSv1.1 142.250.193.100:443 rejected early CCS
+ - [LOG] TLSv1 142.250.193.100:443 rejected early CCS
+ - [LOG] [SSLv3] 142.250.193.100:443 Invalid handshake.
+[INF] Scan HeartBleed..
+ - [LOG] Sending Client Hello...
+ - [LOG] Waiting for Server Hello...
+ - [LOG] Sending heartbeat request..
+[INF] Scan SSLv3 POODLE..
+ - [LOG] Invalid SSLv3 handshake.
+[INF] Scan OpenSSL FREAK..
+ - [LOG] IP Check Ok.
+ - [LOG] Start SSL Connection / Gathering Information
+ - [LOG] Ending Get Information
+ - [LOG] 'Cipher is EXP' not in Response
+[INF] Scan OpenSSL LOGJAM..
+ - [LOG] IP Check Ok.
+ - [LOG] Start SSL Connection / Gathering Information
+ - [LOG] Ending Get Information
+ - [LOG] 'Cipher is DEH' not in Response
+[INF] Scan SSLv2 DROWN..
+invalid literal for int() with base 16: ''
+[RES] Finish scan all vulnerability..
+_________________________________________________________________________
+                              [A2SV REPORT]                             
+ [TARGET]: 142.250.193.100
+ [PORT]: 443
+ [SCAN TIME]: 2021-06-17 11:34:52.057202
+ [VULNERABILITY]
+Vulnerability    CVE           CVSS v2 Base Score         State          
+================ ============= ========================== ===============
+Anonymous Cipher CVE-2007-1858 AV:N/AC:H/Au:N/C:P/I:N/A:N Not Vulnerable.
+CRIME(SPDY)      CVE-2012-4929 AV:N/AC:H/Au:N/C:P/I:N/A:N Vulnerable!    
+HeartBleed       CVE-2014-0160 AV:N/AC:L/Au:N/C:P/I:N/A:N Not Vulnerable.
+CCS Injection    CVE-2014-0224 AV:N/AC:M/Au:N/C:P/I:P/A:P Not Vulnerable.
+SSLv3 POODLE     CVE-2014-3566 AV:N/AC:M/Au:N/C:P/I:N/A:N Not Vulnerable.
+OpenSSL FREAK    CVE-2015-0204 AV:N/AC:M/Au:N/C:N/I:P/A:N Not Vulnerable.
+OpenSSL LOGJAM   CVE-2015-4000 AV:N/AC:M/Au:N/C:N/I:P/A:N Not Vulnerable.
+SSLv2 DROWN      CVE-2016-0800 AV:N/AC:M/Au:N/C:P/I:N/A:N Exception      
+_________________________________________________________________________
+[FIN] Scan Finish!
